@@ -1,0 +1,94 @@
+.settings {
+    height: 100vh;
+    width: 85vw;
+    padding: 1.5rem 2.5rem 1.65rem 3rem;
+}
+
+.settings>p {
+    color: #000000;
+    font-weight: 600;
+    font-size: 1.15rem;
+    line-height: 1.2rem;
+    font-family: "Open Sans";
+}
+
+.settings>form {
+    width: 22rem;
+}
+
+.registerForm>button {
+    background-color: #17A2B8;
+    border-radius: 55px;
+    width: 100%;
+    height: 2.5rem;
+    color: #FFFFFF;
+    font-family: "Open Sans";
+    font-weight: 400;
+    font-size: 0.9rem;
+    line-height: 1rem;
+}
+
+.errorMessageCon {
+    height: 2rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.errorMessageCon>p {
+    color: #DB371F;
+    font-family: "Open Sans";
+    font-weight: 400;
+    font-size: 0.7rem;
+}
+
+.registerInputCon {
+    border: 1.38px solid #D0D0D0;
+    border-radius: 11px;
+    width: 100%;
+    height: 2.4rem;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.registerInputCon>input {
+    height: 100%;
+    width: 100%;
+    border: none;
+    border-top-right-radius: 11px;
+    border-bottom-right-radius: 11px;
+    outline: none;
+    padding: 0.1rem;
+}
+
+.registerInputCon>input::placeholder {
+    color: #828282;
+    font-family: "Open Sans";
+    font-weight: 400;
+    font-size: 0.95rem;
+    line-height: 1rem;
+}
+
+.registerInputCon>img {
+    height: 1.5rem;
+    margin: 0.4rem;
+}
+
+.register>button {
+    border: 1.38px solid #17A2B8;
+    width: 70%;
+    height: 2.5rem;
+    border-radius: 55px;
+    margin-top: 1.1rem;
+    color: #17A2B8;
+    font-family: "Open Sans";
+    font-weight: 400;
+    font-size: 0.9rem;
+    line-height: 1rem;
+}
+
+.passwordEye {
+    cursor: pointer;
+}

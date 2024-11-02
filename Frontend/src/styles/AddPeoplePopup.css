@@ -1,0 +1,174 @@
+.addPeoplePopupCon {
+    height: 100vh;
+    width: 100vw;
+    background-color: #303D438C;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addPeoplePopup {
+    width: 29rem;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1.3rem 1.9rem 1.3rem;
+    background-color: #ffffff;
+    border-radius: 11px;
+    box-shadow: 0px 4px 30px 0px #FFFFFF40;
+    position: relative;
+}
+
+.addPeoplePopup>p {
+    color: #000000;
+    font-family: Noto Sans;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1rem;
+    text-align: left;
+    margin-left: 0.3rem;
+}
+
+.addPeopleInputCon {
+    width: 100%;
+    height: 2.4rem;
+    margin-top: 1rem;
+    position: relative;
+}
+
+.addPeopleInputCon>input {
+    border: 1px solid #767575;
+    outline: none;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    width: 100%;
+    height: 2.4rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.addPeopleInputCon>input::placeholder {
+    color: #00000080;
+    font-family: Noto Sans;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1rem;
+}
+
+.addPeopleDropdown {
+    position: absolute;
+    top: 2.4rem;
+    right: 0;
+    height: 12.2rem;
+    width: 26.2rem;
+    background-color: #FFFFFF;
+    border: 1px solid #7E7A7A14;
+    overflow-y: auto;
+    border-radius: 4px;
+    padding: 0.3rem 1.5rem 1rem 1.5rem;
+}
+
+.addPeopleDropdown::-webkit-scrollbar-track {
+    width: 8px !important;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+}
+
+.addPeopleDropdown::-webkit-scrollbar {
+    width: 8px !important;
+    background-color: #FFFFFF;
+}
+
+.addPeopleDropdown::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #9CB7C5;
+}
+
+.addPeopleDropdownItem {
+    width: 100%;
+    height: 2.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.addPeopleDropdownItem>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.addPeopleDropdownItem>div>div {
+    height: 1.85rem;
+    width: 1.85rem;
+    border-radius: 50%;
+    background-color: #FFEBEB;
+    color: #000000;
+    font-family: DM Sans;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1rem;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.addPeopleDropdownItem>div>p {
+    color: #20102B;
+    font-family: Inter;
+    font-size: 0.85rem;
+    font-weight: 500;
+    line-height: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+.addPeopleDropdownItem>button {
+    height: 1.6rem;
+    width: 7.5rem;
+    border: 1px solid #E2E2E2;
+    border-radius: 8px;
+    color: #767575;
+    font-family: Poppins;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 0.8rem;
+}
+
+.addPeoplePopup>div {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.addPeopleCancelBtn {
+    background-color: #FFFFFF;
+    color: #CF3636;
+    font-family: Poppins;
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1rem;
+    border-radius: 12px;
+    box-shadow: 0px 2px 12px 0px #82698C33;
+    border: 1px solid #CF3636;
+    height: 2.2rem;
+    width: 48.5%;
+}
+
+.addPeopleEmailBtn {
+    background-color: #17A2B8;
+    color: #FFFFFF;
+    font-family: Poppins;
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1rem;
+    border-radius: 12px;
+    box-shadow: 0px 2px 12px 0px #82698C33;
+    height: 2.2rem;
+    width: 48.5%;
+}

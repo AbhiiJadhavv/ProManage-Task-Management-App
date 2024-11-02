@@ -1,0 +1,62 @@
+.logoutPopupCon {
+    height: 100vh;
+    width: 100vw;
+    background-color: #303D438C;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logoutPopup {
+    width: 16rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.3rem 1rem 1.3rem 1rem;
+    background-color: #ffffff;
+    border-radius: 11px;
+    box-shadow: 0px 4px 30px 0px #FFFFFF40;
+    position: relative;
+}
+
+.logoutPopup>p {
+    color: #000000;
+    font-family: Noto Sans;
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 0.6rem;
+}
+
+.logoutPopupBtn {
+    background-color: #17A2B8;
+    color: #FFFFFF;
+    font-family: Poppins;
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1rem;
+    border-radius: 12px;
+    box-shadow: 0px 2px 12px 0px #82698C33;
+    height: 2.3rem;
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.hideLogoutBtn {
+    background-color: #FFFFFF;
+    color: #CF3636;
+    font-family: Poppins;
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1rem;
+    border-radius: 12px;
+    box-shadow: 0px 2px 12px 0px #82698C33;
+    border: 1px solid #CF3636;
+    height: 2.3rem;
+    width: 100%;
+    margin-top: 0.6rem;
+}

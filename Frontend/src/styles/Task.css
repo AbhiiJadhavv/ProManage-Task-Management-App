@@ -1,0 +1,197 @@
+.task {
+    width: 100%;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    padding: 1rem 1.2rem 1rem 1.2rem;
+    background-color: #FFFFFF;
+}
+
+.taskHeader {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.prioritySection {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.prioritySection>div {
+    height: 0.4rem;
+    width: 0.4rem;
+    border-radius: 50%;
+    background-color: #FF2473;
+}
+
+.prioritySection>p {
+    color: #707070;
+    font-family: Poppins;
+    font-size: 0.55rem;
+    font-weight: 500;
+    line-height: 12px;
+}
+
+.taskHeader>button {
+    height: 1rem;
+    width: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.taskHeader>button>img {
+    width: 0.9rem;
+}
+
+.task>p {
+    color: #000000;
+    font-family: Poppins;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1rem;
+    margin-top: 0.5rem;
+}
+
+.taskChecklistHeader {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.taskChecklistHeader>p {
+    color: #000000;
+    font-family: Inter;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 0.85rem;
+}
+
+.taskChecklistHeader>button {
+    height: 1.1rem;
+    width: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3.2px;
+    background-color: #EEECEC;
+}
+
+.taskChecklistHeader>button>img {
+    width: 1rem;
+}
+
+.taskChecklistCon {
+    width: 100%;
+    margin-top: 0.45rem;
+}
+
+.taskChecklistCon>div {
+    width: 100%;
+    padding: 0.55rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    border-radius: 11px;
+    border: 1px solid #E2E2E2;
+    margin-bottom: 0.5rem;
+}
+
+.taskChecklistCon>div>p {
+    color: #000000;
+    font-family: Inter;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 0.85rem;
+}
+
+.taskBtnsCon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.taskDueDateCon {
+    border-radius: 8px;
+    padding: 0.3rem 0.4rem 0.3rem 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Poppins;
+    font-size: 0.45rem;
+    font-weight: 500;
+    line-height: 0.5rem;
+}
+
+.taskDueDateCon.white {
+    background-color: #FFFFFF;
+    color: #FFFFFF;
+}
+
+.taskDueDateCon.red {
+    background-color: #CF3636;
+    color: #FFFFFF;
+}
+
+.taskDueDateCon.grey {
+    background-color: #DBDBDB;
+    color: #5A5A5A;
+}
+
+.taskCategoryBtns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+}
+
+.taskCategoryBtns>button {
+    background-color: #EEECEC;
+    border-radius: 8px;
+    padding: 0.3rem 0.4rem 0.3rem 0.4rem;
+    color: #767575;
+    font-family: Poppins;
+    font-size: 0.45rem;
+    font-weight: 500;
+    line-height: 0.5rem;
+}
+
+#popoverContent {
+    box-shadow: 0px 2px 22px 0px #7E7A7A40;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    padding: 0.5rem 3rem 0.5rem 1rem;
+    position: absolute;
+    right: 0;
+    top: 1.2rem;
+    flex-direction: column;
+}
+
+#popoverContent>button {
+    padding: 0.4rem 0 0.4rem 0;
+    color: #000000;
+    font-family: Poppins;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 0.8rem;
+    text-align: left;
+}
+
+.priorityIndicator.high {
+    background-color: #FF2473;
+}
+
+.priorityIndicator.moderate {
+    background-color: #18B0FF;
+}
+
+.priorityIndicator.low {
+    background-color: #63C05B;
+}

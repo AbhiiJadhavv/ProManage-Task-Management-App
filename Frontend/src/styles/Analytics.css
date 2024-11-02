@@ -1,0 +1,64 @@
+.analytics {
+    height: 100vh;
+    width: 85vw;
+    padding: 1.5rem 2.5rem 1.65rem 3rem;
+}
+
+.analytics>p {
+    color: #000000;
+    font-weight: 600;
+    font-size: 1.15rem;
+    line-height: 1.2rem;
+    font-family: "Open Sans";
+}
+
+.analytics>div {
+    display: flex;
+    gap: 2.5rem;
+    width: 100%;
+    margin-top: 2.5rem;
+}
+
+.analytics>div>div {
+    border-radius: 12px;
+    background-color: #F9FCFF;
+    width: 24.5rem;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+}
+
+.analyticsPoint {
+    display: flex;
+    justify-content: space-between;
+}
+
+.analyticsPoint>div {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.analyticsPoint>div>div {
+    height: 12px;
+    width: 12px;
+    border-radius: 50px;
+    background-color: #90C4CC;
+}
+
+.analyticsPoint>div>p {
+    color: #000000;
+    font-weight: 400;
+    font-size: 0.9rem;
+    line-height: 1rem;
+    font-family: "Open Sans";
+}
+
+.analyticsPoint>p {
+    color: #000000;
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1rem;
+    font-family: "Open Sans";
+}

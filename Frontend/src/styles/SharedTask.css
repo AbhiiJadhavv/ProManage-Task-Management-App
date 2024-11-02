@@ -1,0 +1,197 @@
+.sharedTaskCon {
+    height: 100vh;
+    width: 100vw;
+    background-color: #FFFFFF;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.sharedTask {
+    width: 36vw;
+    max-height: 75vh;
+    margin-top: 6rem;
+    border: 2px solid #EDF5FE;
+    border-radius: 12px;
+    background-color: #FFFFFF;
+    padding: 3rem 1.5rem 3rem 1.5rem;
+    overflow-y: auto;
+}
+
+.sharedTask::-webkit-scrollbar-track {
+    width: 8px !important;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+}
+
+.sharedTask::-webkit-scrollbar {
+    width: 8px !important;
+    background-color: #FFFFFF;
+}
+
+.sharedTask::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #9CB7C5;
+}
+
+.proManageLogoCon2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 5rem;
+    width: 13rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-left: 2.5rem;
+}
+
+.proManageLogoCon2>p {
+    color: #000000;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1rem;
+}
+
+.proManageLogoCon2>img {
+    height: 1.4rem;
+}
+
+.prioritySection2 {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.prioritySection2>div {
+    height: 0.4rem;
+    width: 0.4rem;
+    border-radius: 50%;
+    background-color: #FF2473;
+}
+
+.prioritySection2>p {
+    color: #707070;
+    font-family: Poppins;
+    font-size: 0.55rem;
+    font-weight: 500;
+    line-height: 12px;
+}
+
+.priorityIndicator2.high {
+    background-color: #FF2473;
+}
+
+.priorityIndicator2.moderate {
+    background-color: #18B0FF;
+}
+
+.priorityIndicator2.low {
+    background-color: #63C05B;
+}
+
+.taskTitle2 {
+    color: #000000;
+    font-family: Poppins;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1rem;
+    margin-top: 0.9rem;
+}
+
+.taskChecklistHeader2 {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.8rem;
+}
+
+.taskChecklistHeader2>p {
+    color: #000000;
+    font-family: Inter;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 0.85rem;
+}
+
+.taskChecklistCon2 {
+    width: 100%;
+    margin-top: 0.7rem;
+}
+
+.taskChecklistCon2>div {
+    width: 100%;
+    padding: 0.55rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    border-radius: 11px;
+    border: 1px solid #E2E2E2;
+    margin-bottom: 0.8rem;
+}
+
+.taskChecklistCon2>div>p {
+    color: #000000;
+    font-family: Inter;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 0.85rem;
+}
+
+.sharedTaskDateCon {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.sharedTaskDateCon>p {
+    color: #000000;
+    font-family: Poppins;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 0.8rem;
+}
+
+.taskDueDateCon2 {
+    border-radius: 8px;
+    padding: 0.35rem 0.45rem 0.35rem 0.45rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Poppins;
+    font-size: 0.68rem;
+    font-weight: 500;
+    line-height: 0.7rem;
+}
+
+.taskDueDateCon2.white {
+    background-color: #FFFFFF;
+    color: #FFFFFF;
+}
+
+.taskDueDateCon2.red {
+    background-color: #CF3636;
+    color: #FFFFFF;
+}
+
+.taskDueDateCon2.grey {
+    background-color: #DBDBDB;
+    color: #5A5A5A;
+}
+
+@media (max-width: 780px) {
+
+    .sharedTask {
+        width: 90vw;
+        max-height: 75vh;
+        margin-top: 5rem;
+        border: 2px solid #EDF5FE;
+        border-radius: 12px;
+        background-color: #FFFFFF;
+        padding: 1.2rem 1.5rem 1.2rem 1.5rem;
+        overflow-y: auto;
+    }
+}

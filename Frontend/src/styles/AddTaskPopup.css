@@ -1,0 +1,410 @@
+.addTaskPopupCon {
+    height: 100vh;
+    width: 100vw;
+    background-color: #303D438C;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addTaskPopup {
+    width: 34rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1.2rem 1.7rem 1.3rem 1.7rem;
+    background-color: #ffffff;
+    border-radius: 11px;
+    box-shadow: 0px 4px 30px 0px #FFFFFF40;
+    position: relative;
+}
+
+.addTaskPara {
+    font-family: Inter;
+    font-size: 0.8rem;
+    font-weight: 500;
+    line-height: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.addTaskChecklistPara {
+    font-family: Inter;
+    font-size: 0.8rem;
+    font-weight: 500;
+    line-height: 0.9rem;
+    margin-top: 0.8rem;
+}
+
+.addTaskPopup>input {
+    border: 1px solid #E2E2E2;
+    border-radius: 4px;
+    outline: none;
+    width: 100%;
+    height: 2rem;
+    padding: 0.6rem;
+    font-family: Inter;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 0.9rem;
+    color: #000000;
+    margin-top: 0.3rem;
+}
+
+.addTaskPopup>input::placeholder {
+    color: #9B959F;
+    font-family: Inter;
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+.selectPriorityCon {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.selectPriorityCon>button {
+    border: 1px solid #E2E2E2;
+    border-radius: 8px;
+    padding: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+}
+
+.selectPriorityCon>button>div {
+    height: 0.4rem;
+    width: 0.4rem;
+    border-radius: 50%;
+}
+
+.highPriorityColor {
+    background-color: #FF2473;
+}
+
+.moderatePriorityColor {
+    background-color: #18B0FF;
+}
+
+.lowPriorityColor {
+    background-color: #63C05B;
+}
+
+.selectPriorityCon>button>p {
+    color: #767575;
+    font-family: Poppins;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 0.75rem;
+}
+
+.addTaskAssignToCon {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    margin-top: 0.8rem;
+    position: relative;
+}
+
+.addTaskAssignToCon>p {
+    width: 15%;
+}
+
+.addTaskAssignToCon>input {
+    width: 100%;
+    height: 2rem;
+    border-radius: 4px;
+    border: 1px solid #E2E2E2;
+    padding: 0.6rem;
+    font-family: Inter;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 0.9rem;
+    color: #000000;
+    outline: none;
+    cursor: pointer;
+}
+
+.addTaskAssignToCon>input::placeholder {
+    color: #9B959F;
+    font-family: Inter;
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+.assignToDropdown {
+    position: absolute;
+    top: 2.1rem;
+    right: 0;
+    height: 12.2rem;
+    width: 26.2rem;
+    background-color: #FFFFFF;
+    border: 1px solid #7E7A7A14;
+    overflow-y: auto;
+    border-radius: 4px;
+    padding: 0.3rem 1.5rem 1rem 1.5rem;
+}
+
+.assignToDropdown::-webkit-scrollbar-track {
+    width: 8px !important;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+}
+
+.assignToDropdown::-webkit-scrollbar {
+    width: 8px !important;
+    background-color: #FFFFFF;
+}
+
+.assignToDropdown::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #9CB7C5;
+}
+
+.dropdownItem {
+    width: 100%;
+    height: 2.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dropdownItem>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.dropdownItem>div>div {
+    height: 1.85rem;
+    width: 1.85rem;
+    border-radius: 50%;
+    background-color: #FFEBEB;
+    color: #000000;
+    font-family: DM Sans;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1rem;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdownItem>div>p {
+    color: #20102B;
+    font-family: Inter;
+    font-size: 0.85rem;
+    font-weight: 500;
+    line-height: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+.dropdownItem>button {
+    height: 1.6rem;
+    width: 7.5rem;
+    border: 1px solid #E2E2E2;
+    border-radius: 8px;
+    color: #767575;
+    font-family: Poppins;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 0.8rem;
+}
+
+.addTaskChecklistCon {
+    width: 100%;
+    height: 10.5rem;
+    margin-top: 0.8rem;
+    overflow-y: auto;
+}
+
+.addTaskChecklistCon::-webkit-scrollbar-track {
+    width: 8px !important;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+}
+
+.addTaskChecklistCon::-webkit-scrollbar {
+    width: 8px !important;
+    background-color: #FFFFFF;
+}
+
+.addTaskChecklistCon::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #9CB7C5;
+}
+
+.addTaskChecklistCon>div {
+    height: 2.1rem;
+    width: 100%;
+    border: 1px solid #E2E2E2;
+    border-radius: 11px;
+    padding: 0.4rem 0.6rem 0.4rem 0.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-bottom: 0.8rem;
+}
+
+.addTaskChecklistCheckbox {
+    border-radius: 6px;
+    height: 0.8rem;
+    width: 0.8rem;
+    cursor: pointer;
+}
+
+.addTaskChecklistInput {
+    outline: none;
+    border: none;
+    width: 100%;
+    height: 1.9rem;
+    padding: 0.4rem 0 0.4rem 0;
+    font-family: Inter;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 0.9rem;
+    color: #000000;
+}
+
+.addTaskChecklistInput::placeholder {
+    color: #9B959F;
+    font-family: Inter;
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 0.8rem;
+    letter-spacing: 0.5px;
+}
+
+.addTaskChecklistCon>div>button {
+    height: 0.8rem;
+    width: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addTaskChecklistCon>div>button>img {
+    width: 0.8rem;
+}
+
+.addTaskChecklistCon>button {
+    width: 19%;
+    padding-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+}
+
+.addTaskChecklistCon>button>span {
+    color: #767575;
+    font-size: 1.15rem;
+    font-weight: 500;
+    line-height: 0.9rem;
+}
+
+.addTaskChecklistCon>button>p {
+    color: #767575;
+    font-family: Inter;
+    font-size: 0.85rem;
+    font-weight: 500;
+    line-height: 0.9rem;
+}
+
+.addTaskBtnsCon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.2rem;
+}
+
+.addTaskBtnsCon>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+}
+
+.addTaskCancelBtn {
+    background-color: #FFFFFF;
+    color: #CF3636;
+    font-family: Poppins;
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 1rem;
+    border-radius: 12px;
+    box-shadow: 0px 2px 12px 0px #82698C33;
+    border: 1px solid #CF3636;
+    height: 2.1rem;
+    width: 8rem;
+}
+
+.addTaskSaveBtn {
+    background-color: #17A2B8;
+    color: #FFFFFF;
+    font-family: Poppins;
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 1rem;
+    border-radius: 12px;
+    box-shadow: 0px 2px 12px 0px #82698C33;
+    height: 2.1rem;
+    width: 8rem;
+}
+
+.required-field::after {
+    content: "*";
+    color: red;
+}
+
+.selectedPriority {
+    background-color: #EEECEC;
+    border: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.datePlaceholder {
+    border: 1px solid #E2E2E2;
+    color: #707070;
+    font-family: Poppins;
+    font-size: 0.8rem;
+    font-weight: 500;
+    line-height: 1rem;
+    border-radius: 11px;
+    height: 2.1rem;
+    width: 8.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.addTaskCalendar {
+    border-radius: 11px;
+    height: 2.1rem;
+    width: 9rem;
+    padding: 0 0.4rem 0 0.4rem;
+    border: 1px solid #E2E2E2;
+    color: #707070;
+    font-family: Poppins;
+    font-size: 0.8rem;
+    font-weight: 500;
+    line-height: 1rem;
+    outline: none;
+    cursor: pointer;
+}

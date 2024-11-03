@@ -24,10 +24,9 @@ const Board = ({ user, setShowAddPeople, setShowAddTask, openLinkCopiedToast }) 
         try {
             const response = await axios.get(`${TASK_API_END_POINT}/user`, {
                 params: { userId: user._id },
-                withCredentials: true,
                 headers: {
                     Authorization: `Bearer ${user.token}`, 
-                },
+                }
             });
             const userTasks = response.data.tasks;
 

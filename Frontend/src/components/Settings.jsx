@@ -30,8 +30,12 @@ const Settings = ({ setUser }) => {
     const updateHandler = async (e) => {
         e.preventDefault();
         try {
+            const token = localStorage.getItem("token");
             const res = await axios.post(`${USER_API_END_POINT}/profile/update`, input, {
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`,
+                },
                 withCredentials: true
             });
 

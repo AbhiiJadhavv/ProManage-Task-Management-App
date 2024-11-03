@@ -25,7 +25,7 @@ const Board = ({ user, setShowAddPeople, setShowAddTask, openLinkCopiedToast }) 
             const token = localStorage.getItem("token");
             const response = await axios.get(`${TASK_API_END_POINT}/user`, {
                 params: { userId: user._id },
-                headers: { Authorization: `Bearer ${token}` }, // Send token from localStorage
+                headers: { Authorization: `Bearer ${token}` },
             });
     
             const userTasks = response.data.tasks;

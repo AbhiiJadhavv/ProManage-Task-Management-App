@@ -20,9 +20,10 @@ const Analytics = ({ user }) => {
             if (!user || !user._id) return;
 
             try {
+                const token = localStorage.getItem("token");
                 const response = await axios.get(`${TASK_API_END_POINT}/user`, {
                     params: { userId: user._id },
-                    withCredentials: true,
+                    headers: { Authorization: `Bearer ${token}` },
                 });
                 const userTasks = response.data.tasks;
 

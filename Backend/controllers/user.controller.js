@@ -50,41 +50,44 @@ export const login = async (req, res) => {
                 message: "Something is missing",
                 success: false
             });
-        };
+        }
+        
         let user = await User.findOne({ email });
         if (!user) {
             return res.status(400).json({
                 message: 'Please enter valid email',
                 success: false
-            })
-        };
+            });
+        }
+
         const isPasswordMatch = await bcrypt.compare(password, user.password);
         if (!isPasswordMatch) {
             return res.status(400).json({
                 message: 'Incorrect Password',
                 success: false
-            })
-        };
-        const tokenData = {
-            userId: user._id
+            });
         }
+
+        const tokenData = { userId: user._id };
         const token = await jwt.sign(tokenData, process.env.SECRET_KEY, { expiresIn: '1d' });
 
-        user = {
-            _id: user._id,
-            name: user.name,
-            email: user.email,
-        }
-
-        return res.status(200).cookie("token", token, { maxAge: 1 * 24 * 60 * 60 * 1000, httpOnly: true, sameSite: 'strict' }).json({
+        // Ensure token is sent in the response
+        res.status(200).json({
             message: `Welcome ${user.name}`,
-            user,
+            user: {
+                _id: user._id,
+                name: user.name,
+                email: user.email,
+            },
+            token, // Include token here
             success: true
-        })
+        });
     } catch (error) {
         console.log(error);
+        res.status(500).json({ message: "Server error", success: false });
     }
-}
+};
+
 
 
 export const logout = async (req, res) => {

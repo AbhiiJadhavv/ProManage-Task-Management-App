@@ -20,16 +20,15 @@ const Board = ({ user, setShowAddPeople, setShowAddTask, openLinkCopiedToast }) 
 
     const fetchTasks = async () => {
         if (!user || !user._id) return;
-
+    
         try {
             const response = await axios.get(`${TASK_API_END_POINT}/user`, {
                 params: { userId: user._id },
-                headers: {
-                    Authorization: `Bearer ${user.token}`, 
-                }
+                withCredentials: true, 
             });
+            
             const userTasks = response.data.tasks;
-
+    
             setTasks({
                 backlog: userTasks.filter(task => task.status === "backlog"),
                 toDo: userTasks.filter(task => task.status === "toDo"),
@@ -37,9 +36,9 @@ const Board = ({ user, setShowAddPeople, setShowAddTask, openLinkCopiedToast }) 
                 done: userTasks.filter(task => task.status === "done"),
             });
         } catch (error) {
-            console.error("Failed to fetch tasks:", error);
+            console.error("Failed to fetch tasks:", error.response?.data?.message || error.message);
         }
-    };
+    };    
 
     useEffect(() => {
         const formatDate = (date) => {

@@ -22,23 +22,23 @@ const Board = ({ user, setShowAddPeople, setShowAddTask, openLinkCopiedToast }) 
         if (!user || !user._id) return;
     
         try {
+            const token = localStorage.getItem("token");
             const response = await axios.get(`${TASK_API_END_POINT}/user`, {
                 params: { userId: user._id },
-                withCredentials: true, 
+                headers: { Authorization: `Bearer ${token}` }, // Send token from localStorage
             });
-            
-            const userTasks = response.data.tasks;
     
+            const userTasks = response.data.tasks;
             setTasks({
-                backlog: userTasks.filter(task => task.status === "backlog"),
-                toDo: userTasks.filter(task => task.status === "toDo"),
-                inProgress: userTasks.filter(task => task.status === "inProgress"),
-                done: userTasks.filter(task => task.status === "done"),
+                backlog: userTasks.filter((task) => task.status === "backlog"),
+                toDo: userTasks.filter((task) => task.status === "toDo"),
+                inProgress: userTasks.filter((task) => task.status === "inProgress"),
+                done: userTasks.filter((task) => task.status === "done"),
             });
         } catch (error) {
             console.error("Failed to fetch tasks:", error.response?.data?.message || error.message);
         }
-    };    
+    };        
 
     useEffect(() => {
         const formatDate = (date) => {

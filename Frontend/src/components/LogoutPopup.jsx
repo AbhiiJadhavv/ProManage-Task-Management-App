@@ -17,6 +17,7 @@ const LogoutPopup = ({ setShowLogout, setUser }) => {
             if (res.data.success) {
                 setUser(null);
                 localStorage.removeItem('user');
+                localStorage.removeItem('token');
                 navigate("/");
                 toast.success(res.data.message);
                 console.log("Logged out successfully.");

@@ -9,6 +9,7 @@ export const logoutUser = async (setUser, navigate, setShowLogout) => {
         if (res.data.success) {
             setUser(null);
             localStorage.removeItem('user');
+            localStorage.removeItem('token');
             navigate("/");
             toast.success(res.data.message);
             if (setShowLogout) setShowLogout(false);

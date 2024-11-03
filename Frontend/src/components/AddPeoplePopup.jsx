@@ -35,13 +35,20 @@ const AddPeoplePopup = ({ setShowAddPeople, setShowAddPeople2, email, setEmail, 
 
     const handleAddEmail = async () => {
         try {
+            const token = localStorage.getItem("token");
             const currentUserId = user._id;
     
-            await axios.put(`${TASK_API_END_POINT}/addUser`, {
-                currentUserId,
-                newUserEmail: email
-            }, { withCredentials: true });
-    
+            await axios.put(
+                `${TASK_API_END_POINT}/addUser`,
+                {
+                    currentUserId,
+                    newUserEmail: email,
+                },
+                {
+                    headers: { Authorization: `Bearer ${token}` },
+                    withCredentials: true,
+                }
+            );
             setShowAddPeople(false);
             setShowAddPeople2(true);
             console.log("Email added to the board.");

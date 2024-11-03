@@ -81,11 +81,13 @@ const AddTaskPopup = ({ setShowAddTask, user }) => {
     const addTaskHandler = async (e) => {
         e.preventDefault();
         try {
+            const token = localStorage.getItem("token");
             const taskData = {
                 ...input,
-                creatorEmail: user.email, 
+                creatorEmail: user.email,
             };
             await axios.post(`${TASK_API_END_POINT}`, taskData, {
+                headers: { Authorization: `Bearer ${token}` },
                 withCredentials: true,
             });
             console.log("Task created Successfully.");
@@ -95,7 +97,7 @@ const AddTaskPopup = ({ setShowAddTask, user }) => {
             setShowAddTask(false);
             window.location.reload();
         }
-    };  
+    };
 
     return (
         <div className='addTaskPopupCon'>

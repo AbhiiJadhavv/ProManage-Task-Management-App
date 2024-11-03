@@ -96,7 +96,9 @@ const UpdateTaskPopup = ({ setShowUpdateTask, task, refreshTasks }) => {
     const updateTaskHandler = async (e) => {
         e.preventDefault();
         try {
+            const token = localStorage.getItem("token");
             await axios.put(`${TASK_API_END_POINT}/${task._id}`, input, {
+                headers: { Authorization: `Bearer ${token}` },
                 withCredentials: true,
             });
             console.log("Task updated successfully.");

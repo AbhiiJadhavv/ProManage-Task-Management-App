@@ -69,9 +69,8 @@ export const login = async (req, res) => {
         }
 
         const tokenData = { userId: user._id };
-        const token = await jwt.sign(tokenData, process.env.SECRET_KEY, { expiresIn: '1d' });
+        const token = await jwt.sign(tokenData, process.env.SECRET_KEY, { expiresIn: '7d' });
 
-        // Ensure token is sent in the response
         res.status(200).json({
             message: `Welcome ${user.name}`,
             user: {
@@ -79,7 +78,7 @@ export const login = async (req, res) => {
                 name: user.name,
                 email: user.email,
             },
-            token, // Include token here
+            token,
             success: true
         });
     } catch (error) {

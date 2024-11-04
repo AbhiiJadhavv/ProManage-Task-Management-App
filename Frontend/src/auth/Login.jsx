@@ -30,13 +30,11 @@ const Login = ({ setShowRegister, setUser }) => {
             const res = await axios.post(`${USER_API_END_POINT}/login`, input, {
                 headers: { "Content-Type": "application/json" },
             });
-            
-            console.log("Login response:", res.data); // Log entire response to check structure
     
             if (res.data.success) {
                 setUser(res.data.user);
                 localStorage.setItem("user", JSON.stringify(res.data.user));
-                localStorage.setItem("token", res.data.token); // Store token in localStorage
+                localStorage.setItem("token", res.data.token);
                 navigate("/");
                 toast.success(res.data.message);
             }

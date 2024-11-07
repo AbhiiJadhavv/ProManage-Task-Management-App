@@ -165,21 +165,8 @@
     font-size: 0.68rem;
     font-weight: 500;
     line-height: 0.7rem;
-}
-
-.taskDueDateCon2.white {
-    background-color: #FFFFFF;
-    color: #FFFFFF;
-}
-
-.taskDueDateCon2.red {
     background-color: #CF3636;
     color: #FFFFFF;
-}
-
-.taskDueDateCon2.grey {
-    background-color: #DBDBDB;
-    color: #5A5A5A;
 }
 
 @media (max-width: 780px) {

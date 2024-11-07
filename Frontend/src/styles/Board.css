@@ -66,9 +66,11 @@
 }
 
 .durationSelect {
-    text-align: right;
     position: relative;
-    margin-top: 1.7rem;
+    margin-top: 1.9rem;
+    display: flex;
+    justify-content: flex-end;
+    width: 7rem;
 }
 
 .durationButton {
@@ -113,6 +115,7 @@
     font-weight: 500;
     font-size: 0.83rem;
     line-height: 0.9rem;
+    text-align: left;
 }
 
 .boardCon {

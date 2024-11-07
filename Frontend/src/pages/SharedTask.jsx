@@ -50,13 +50,6 @@ const SharedTask = () => {
         return `${month} ${day}${suffix}`;
     };
 
-    const getDueDateClassName = () => {
-        if (!dueDate) return 'white';
-        if (priority === 'high') return 'red';
-        if (priority === 'low' || priority === 'moderate') return 'grey';
-        return '';
-    };
-
     return (
         <div className='sharedTaskCon'>
             <div className='proManageLogoCon2'>
@@ -89,7 +82,7 @@ const SharedTask = () => {
                 {dueDate && (
                     <div className='sharedTaskDateCon'>
                         <p>Due Date</p>
-                        <div className={`taskDueDateCon2 ${getDueDateClassName()}`}>{formatDueDate(dueDate)}</div>
+                        <div className='taskDueDateCon2'>{formatDueDate(dueDate)}</div>
                     </div>
                 )}
             </div>

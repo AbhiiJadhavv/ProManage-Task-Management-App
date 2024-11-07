@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import AddPeopleIcon from "../assets/AddPeopleIcon.png";
 import CollapseAllIcon from "../assets/CollapseAllIcon.png";
 import AddNewTaskIcon from "../assets/AddNewTaskIcon.png";
+import DownArrowIcon from "../assets/DownArrowIcon.png";
 import '../styles/Board.css';
 import Task from './Task';
 import axios from "axios";
 import { TASK_API_END_POINT } from '../utils/constant';
 
-const Board = ({ user, setShowAddPeople, setShowAddTask, openLinkCopiedToast }) => {
+const Board = ({ user, setShowAddPeople, setShowAddTask, showToast }) => {
     const [today, setToday] = useState('');
     const [tasks, setTasks] = useState({
         backlog: [],
@@ -15,8 +16,9 @@ const Board = ({ user, setShowAddPeople, setShowAddTask, openLinkCopiedToast }) 
         inProgress: [],
         done: []
     });
-    const [expandedChecklists, setExpandedChecklists] = useState({});
+    const [expLists, setExpLists] = useState({});
     const [selectedDuration, setSelectedDuration] = useState("thisWeek");
+    const [isPopoverOpen, setPopoverOpen] = useState(false);
 
     const fetchTasks = async () => {
         if (!user || !user._id) return;
@@ -64,21 +66,21 @@ const Board = ({ user, setShowAddPeople, setShowAddTask, openLinkCopiedToast }) 
         fetchTasks();
     };
 
-    const toggleChecklistExpansion = (taskId) => {
-        setExpandedChecklists(prevState => ({
+    const toggleListExp = (taskId) => {
+        setExpLists(prevState => ({
             ...prevState,
             [taskId]: !prevState[taskId]
         }));
     };
 
-    const collapseAllExpandedChecklists = (category) => {
-        const updatedState = { ...expandedChecklists };
+    const collapseAllExpLists = (category) => {
+        const updatedState = { ...expLists };
         tasks[category].forEach(task => {
-            if (expandedChecklists[task._id]) {
+            if (expLists[task._id]) {
                 updatedState[task._id] = false;
             }
         });
-        setExpandedChecklists(updatedState);
+        setExpLists(updatedState);
     };
 
     const filterTasksByDuration = (taskList) => {
@@ -104,8 +106,9 @@ const Board = ({ user, setShowAddPeople, setShowAddTask, openLinkCopiedToast }) 
         });
     };
 
-    const handleDurationChange = (e) => {
-        setSelectedDuration(e.target.value);
+    const handleDurationChange = (value) => {
+        setSelectedDuration(value);
+        setPopoverOpen(false);
     };
 
     return (
@@ -124,11 +127,17 @@ const Board = ({ user, setShowAddPeople, setShowAddTask, openLinkCopiedToast }) 
                 <div>
                     <p className='todayDate'>{today}</p>
                     <div className="durationSelect">
-                        <select name="duration" id="duration" value={selectedDuration} onChange={handleDurationChange}>
-                            <option value="today">Today</option>
-                            <option value="thisWeek">This Week</option>
-                            <option value="thisMonth">This Month</option>
-                        </select>
+                        <div onClick={() => setPopoverOpen(!isPopoverOpen)} className="durationButton">
+                            <p>{selectedDuration === "today" ? "Today" : selectedDuration === "thisWeek" ? "This Week" : "This Month"}</p>
+                            <img src={DownArrowIcon} alt="select duration" />
+                        </div>
+                        {isPopoverOpen && (
+                            <div className="popoverContent2">
+                                <div onClick={() => handleDurationChange("today")}>Today</div>
+                                <div onClick={() => handleDurationChange("thisWeek")}>This Week</div>
+                                <div onClick={() => handleDurationChange("thisMonth")}>This Month</div>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
@@ -136,7 +145,7 @@ const Board = ({ user, setShowAddPeople, setShowAddTask, openLinkCopiedToast }) 
                 <div className='backlog boardContent'>
                     <div className='boardContentHeader'>
                         <p>Backlog</p>
-                        <button className='collapseAllBtn' onClick={() => collapseAllExpandedChecklists("backlog")}>
+                        <button className='collapseAllBtn' onClick={() => collapseAllExpLists("backlog")}>
                             <img src={CollapseAllIcon} alt="compress task" />
                         </button>
                     </div>
@@ -145,10 +154,10 @@ const Board = ({ user, setShowAddPeople, setShowAddTask, openLinkCopiedToast }) 
                             <Task
                                 key={task._id}
                                 task={task}
-                                openLinkCopiedToast={openLinkCopiedToast}
+                                showToast={showToast}
                                 refreshTasks={refreshTasks}
-                                isExpanded={expandedChecklists[task._id] || false}
-                                toggleChecklistExpansion={() => toggleChecklistExpansion(task._id)}
+                                isExpanded={expLists[task._id] || false}
+                                toggleListExp={() => toggleListExp(task._id)}
                             />
                         ))}
                     </div>
@@ -161,7 +170,7 @@ const Board = ({ user, setShowAddPeople, setShowAddTask, openLinkCopiedToast }) 
                             <button onClick={() => setShowAddTask(true)}>
                                 <img src={AddNewTaskIcon} alt="add task" />
                             </button>
-                            <button className='collapseAllBtn' onClick={() => collapseAllExpandedChecklists("toDo")}>
+                            <button className='collapseAllBtn' onClick={() => collapseAllExpLists("toDo")}>
                                 <img src={CollapseAllIcon} alt="compress task" />
                             </button>
                         </div>
@@ -171,10 +180,10 @@ const Board = ({ user, setShowAddPeople, setShowAddTask, openLinkCopiedToast }) 
                             <Task
                                 key={task._id}
                                 task={task}
-                                openLinkCopiedToast={openLinkCopiedToast}
+                                showToast={showToast}
                                 refreshTasks={refreshTasks}
-                                isExpanded={expandedChecklists[task._id] || false}
-                                toggleChecklistExpansion={() => toggleChecklistExpansion(task._id)}
+                                isExpanded={expLists[task._id] || false}
+                                toggleListExp={() => toggleListExp(task._id)}
                             />
                         ))}
                     </div>
@@ -183,7 +192,7 @@ const Board = ({ user, setShowAddPeople, setShowAddTask, openLinkCopiedToast }) 
                 <div className='inProgress boardContent'>
                     <div className='boardContentHeader'>
                         <p>In progress</p>
-                        <button className='collapseAllBtn' onClick={() => collapseAllExpandedChecklists("inProgress")}>
+                        <button className='collapseAllBtn' onClick={() => collapseAllExpLists("inProgress")}>
                             <img src={CollapseAllIcon} alt="compress task" />
                         </button>
                     </div>
@@ -192,10 +201,10 @@ const Board = ({ user, setShowAddPeople, setShowAddTask, openLinkCopiedToast }) 
                             <Task
                                 key={task._id}
                                 task={task}
-                                openLinkCopiedToast={openLinkCopiedToast}
+                                showToast={showToast}
                                 refreshTasks={refreshTasks}
-                                isExpanded={expandedChecklists[task._id] || false}
-                                toggleChecklistExpansion={() => toggleChecklistExpansion(task._id)}
+                                isExpanded={expLists[task._id] || false}
+                                toggleListExp={() => toggleListExp(task._id)}
                             />
                         ))}
                     </div>
@@ -204,7 +213,7 @@ const Board = ({ user, setShowAddPeople, setShowAddTask, openLinkCopiedToast }) 
                 <div className='done boardContent'>
                     <div className='boardContentHeader'>
                         <p>Done</p>
-                        <button className='collapseAllBtn' onClick={() => collapseAllExpandedChecklists("done")}>
+                        <button className='collapseAllBtn' onClick={() => collapseAllExpLists("done")}>
                             <img src={CollapseAllIcon} alt="compress task" />
                         </button>
                     </div>
@@ -213,10 +222,10 @@ const Board = ({ user, setShowAddPeople, setShowAddTask, openLinkCopiedToast }) 
                             <Task
                                 key={task._id}
                                 task={task}
-                                openLinkCopiedToast={openLinkCopiedToast}
+                                showToast={showToast}
                                 refreshTasks={refreshTasks}
-                                isExpanded={expandedChecklists[task._id] || false}
-                                toggleChecklistExpansion={() => toggleChecklistExpansion(task._id)}
+                                isExpanded={expLists[task._id] || false}
+                                toggleListExp={() => toggleListExp(task._id)}
                             />
                         ))}
                     </div>

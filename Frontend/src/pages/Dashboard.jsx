@@ -51,7 +51,7 @@ const Dashboard = () => {
         </div>;
     }
 
-    const openLinkCopiedToast = () => {
+    const showToast = () => {
         setShowLinkCopied(true);
         setTimeout(() => {
             setShowLinkCopied(false);
@@ -61,13 +61,13 @@ const Dashboard = () => {
     const renderContent = () => {
         switch (activeTab) {
             case 'board':
-                return <Board user={user} setShowAddPeople={setShowAddPeople} setShowAddTask={setShowAddTask} openLinkCopiedToast={openLinkCopiedToast} />;
+                return <Board user={user} setShowAddPeople={setShowAddPeople} setShowAddTask={setShowAddTask} showToast={showToast} />;
             case 'analytics':
                 return <Analytics user={user} />;
             case 'settings':
                 return <Settings user={user} setUser={setUser} />;
             default:
-                return <Board user={user} setShowAddPeople={setShowAddPeople} setShowAddTask={setShowAddTask} openLinkCopiedToast={openLinkCopiedToast} />;
+                return <Board user={user} setShowAddPeople={setShowAddPeople} setShowAddTask={setShowAddTask} showToast={showToast} />;
         }
     }
 

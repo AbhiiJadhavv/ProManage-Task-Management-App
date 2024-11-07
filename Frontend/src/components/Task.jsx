@@ -8,7 +8,7 @@ import { TASK_API_END_POINT } from '../utils/constant';
 import DeleteTaskPopup from './DeleteTaskPopup';
 import UpdateTaskPopup from './UpdateTaskPopup';
 
-const Task = ({ task, openLinkCopiedToast, refreshTasks, isExpanded, toggleChecklistExpansion }) => {
+const Task = ({ task, showToast, refreshTasks, isExpanded, toggleListExp }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [checklistItems, setChecklistItems] = useState(task.checklistItems || []);
     const [isUpdating, setIsUpdating] = useState(false);
@@ -19,7 +19,7 @@ const Task = ({ task, openLinkCopiedToast, refreshTasks, isExpanded, toggleCheck
 
     const completedCount = checklistItems.filter(item => item.completed).length;
 
-    const toggleChecklistItemCompletion = async (index) => {
+    const toggleListItemComp = async (index) => {
         const updatedChecklistItems = [...checklistItems];
         updatedChecklistItems[index].completed = !updatedChecklistItems[index].completed;
         setChecklistItems(updatedChecklistItems);
@@ -63,7 +63,7 @@ const Task = ({ task, openLinkCopiedToast, refreshTasks, isExpanded, toggleCheck
             .writeText(shareableLink)
             .then(() => {
                 console.log("Link copied to clipboard");
-                openLinkCopiedToast();
+                showToast();
             })
             .catch(() => {
                 console.log("Failed to copy link");
@@ -118,8 +118,15 @@ const Task = ({ task, openLinkCopiedToast, refreshTasks, isExpanded, toggleCheck
 
     const getDueDateClassName = () => {
         if (!task.dueDate) return 'white';
+    
+        const today = new Date();
+        const dueDate = new Date(task.dueDate);
+        const isPastDue = dueDate < today;
+    
         if (task.priority === 'high') return 'red';
+        if ((task.priority === 'low' || task.priority === 'moderate') && isPastDue) return 'red';
         if (task.priority === 'low' || task.priority === 'moderate') return 'grey';
+    
         return '';
     };
 
@@ -144,7 +151,7 @@ const Task = ({ task, openLinkCopiedToast, refreshTasks, isExpanded, toggleCheck
             <p className='taskTitle'>{task.title}</p>
             <div className='taskChecklistHeader'>
                 <p>Checklist ({completedCount}/{checklistItems.length})</p>
-                <button onClick={toggleChecklistExpansion}>
+                <button onClick={toggleListExp}>
                     <img src={isExpanded ? CompressIcon : ExpandIcon} alt="Toggle Checklist" />
                 </button>
             </div>
@@ -156,7 +163,7 @@ const Task = ({ task, openLinkCopiedToast, refreshTasks, isExpanded, toggleCheck
                                 type="checkbox"
                                 name={task._id + index}
                                 checked={item.completed}
-                                onChange={() => toggleChecklistItemCompletion(index)}
+                                onChange={() => toggleListItemComp(index)}
                                 className='addTaskChecklistCheckbox'
                             />
                             <p>{item.text}</p>

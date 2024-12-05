@@ -1,6 +1,7 @@
 import express from 'express';
 import { createTask, getTasksByUser, updateTaskStatus, updateTask, deleteTask, addUserToTasks, toggleChecklistItemCompletion, getTaskByIdReadOnly } from '../controllers/task.controller.js';
 import isAuthenticated from "../auth/isAuthenticated.js";
+
 const router = express.Router();
 
 router.post('/', isAuthenticated, createTask);
